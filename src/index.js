@@ -13,7 +13,42 @@ dotenv.config({
 });
 
 // APPROACH 2 Professional Approach -- import from the db file index.js
-connectDB();
+connectDB()
+
+    // await mongoose.connect(`${process.env.MONGODB_URI}/${DB_NAME}`);
+    // app.on("errror", (error) => {
+    //     console.log("ERRR: ", error)
+    //     throw error
+    // })
+
+    .then(() => {
+        app.listen(process.env.PORT || 8000, () => {
+            console.log(`server is running at port : ${process.env.PORT}`);
+        })
+    })
+    .catch((err) => {
+        console.log("Mongo db connection failed !!! ");
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*   APPROACH 1:
 import express from "express";
